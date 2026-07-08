@@ -1,19 +1,18 @@
-🐳 Docker Complete Guide
+### 🐳 Docker Complete Guide
+
+---
 Part 2 – Docker Architecture, Installation & First Practical
 Chapter 3 – Docker Architecture (Complete)
 
 In the previous chapter, we learned:
-
 Why Docker was created
 What Docker is
 Docker Image
 Docker Container
-
 Now let's understand how Docker works internally.
-
 Docker Architecture
-
 Docker consists of multiple components working together.
+```
 
                 Developer
                     │
@@ -33,31 +32,24 @@ Docker consists of multiple components working together.
         │
         ▼
  Docker Registry (Docker Hub)
+```
 
 Let's understand each component one by one.
 
-1. Docker CLI (Command Line Interface)
-
-Docker CLI is the command-line tool used to communicate with Docker.
-
-Whenever we execute a Docker command,
-
+1. Docker CLI (Command Line Interface)   
+Docker CLI is the command-line tool used to communicate with Docker.  
+Whenever we execute a Docker command,  
 Example
-
+```
 docker images
-
 docker ps
-
 docker pull nginx
-
 docker run nginx
-
+```
 the command is sent to Docker Daemon.
-
 Responsibilities
-
 Docker CLI is responsible for
-
+```
 Pulling Images
 Creating Containers
 Starting Containers
@@ -65,29 +57,23 @@ Stopping Containers
 Removing Containers
 Managing Networks
 Managing Volumes
-
+```
 CLI itself doesn't execute anything.
 
 It simply sends requests.
 
+```
 Flow
 Developer
-
 ↓
-
 docker run nginx
-
 ↓
-
 Docker CLI
-
 ↓
-
 Docker Daemon
+```
 Docker Desktop
-
 Docker Desktop provides a graphical interface.
-
 Using Docker Desktop we can
 
 View Containers
@@ -98,27 +84,19 @@ Manage Volumes
 Manage Networks
 
 Docker Desktop internally uses the same Docker Engine.
-
 CLI and Docker Desktop perform the same work.
 
 Only the interface is different.
-
 Docker Daemon
-
 Docker Daemon is the background service.
-
 It continuously runs in the background waiting for Docker commands.
-
 Whenever Docker CLI receives a command,
-
 it forwards it to Docker Daemon.
-
 Responsibilities
-
 Docker Daemon performs all actual work.
 
 It can
-
+```
 Build Images
 Pull Images
 Create Containers
@@ -127,60 +105,37 @@ Stop Containers
 Delete Containers
 Create Networks
 Create Volumes
-
+```
 Without Docker Daemon,
-
 Docker commands will not work.
-
 Example
-
 Suppose you execute
-
 docker run nginx
-
 The following happens internally.
-
+```
 Developer
-
 ↓
-
 docker run nginx
-
 ↓
-
 Docker CLI
-
 ↓
-
 Docker Daemon
-
 ↓
-
 Checks Image
-
 ↓
-
 Image Available?
-
 ↓
-
 YES
-
 ↓
-
 Create Container
-
 ↓
-
 Run Container
+```
 What if Image Doesn't Exist?
-
 Suppose nginx image is not available.
-
 Docker automatically downloads it.
-
 Internal Flow
-
+```
 docker run nginx
 
 ↓
@@ -210,6 +165,7 @@ Create Container
 ↓
 
 Run Container
+```
 
 This is why Docker is very easy to use.
 
@@ -218,11 +174,11 @@ Docker Engine
 Docker Engine is the core runtime of Docker.
 
 It consists of
-
+```
 Docker CLI
 Docker Daemon
 REST API
-
+```
 It is responsible for running containers.
 
 Think of Docker Engine as the heart of Docker.
@@ -352,6 +308,8 @@ Run Container
 ↓
 
 Application Running
+
+--------------------------------------------------------------------
 Chapter 4 – Docker Installation
 
 Docker supports
@@ -394,17 +352,17 @@ Step 4 – Verify Installation
 Open Terminal or Command Prompt.
 
 Execute
-
+```
 docker --version
-
+```
 Example Output
 
 Docker version 28.x.x
 
 Now verify Docker Engine.
-
+```
 docker ps
-
+```
 Expected Output
 
 CONTAINER ID
@@ -450,6 +408,7 @@ Then execute
 docker ps
 
 again.
+-----------------------------------------------------------------
 
 Chapter 5 – First Docker Practical
 
