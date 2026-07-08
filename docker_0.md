@@ -1,6 +1,6 @@
 ---
 
-# 🐳 Docker Complete Guide (Theory + Practical)
+# 🐳 Docker Complete Guide 
 
  **Part 1 - Introduction | Why Docker? | What is Docker? | Docker Architecture**
 
